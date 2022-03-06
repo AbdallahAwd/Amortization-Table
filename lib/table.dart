@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'components.dart';
 
@@ -29,6 +30,7 @@ class ProjectTable extends StatefulWidget {
 }
 
 class _ProjectTableState extends State<ProjectTable> {
+  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   List<double> startBalance = [];
   late double payment;
   List<double> interest = [];
