@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Widget textWidget({
   var controller = TextEditingController,
   var onChange,
+  var onTab,
   Widget? label,
 }) =>
     TextFormField(
@@ -15,6 +16,7 @@ Widget textWidget({
       ),
       keyboardType: TextInputType.number,
       onChanged: onChange,
+      onTap: onTab,
     );
 
 TableRow tableBuilder(List<String> cells, {bool isHeader = false}) {

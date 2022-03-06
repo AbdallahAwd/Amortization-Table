@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import 'components.dart';
 
@@ -30,7 +29,6 @@ class ProjectTable extends StatefulWidget {
 }
 
 class _ProjectTableState extends State<ProjectTable> {
-  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   List<double> startBalance = [];
   late double payment;
   List<double> interest = [];
@@ -42,12 +40,7 @@ class _ProjectTableState extends State<ProjectTable> {
     super.initState();
     startBalance = [widget.loanValue];
     payment = widget.mortgagePayment;
-    // startBalance * (widget.monthlyRate) / 100
-    // interest = [];
-    // payment - interest
-    // principal = [];
-    // startBalance - principal
-    // endingBalance = [widget.loanValue];
+
     for (int i = 0; i <= widget.numberOfPay; i++) {
       interest.add(startBalance[i] * (widget.monthlyRate) / 100);
       principal.add(payment - interest[i]);
@@ -127,7 +120,7 @@ class _ProjectTableState extends State<ProjectTable> {
                         children: [
                           tableBuilder([
                             '${months[index]}',
-                            '22-1-2025',
+                            '${widget.initialRate}',
                             '${startBalance[index].toStringAsFixed(2)}\$',
                             '${payment.toStringAsFixed(2)}\$',
                             '${interest[index].toStringAsFixed(2)} \$',

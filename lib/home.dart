@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:project/components.dart';
 import 'package:project/table.dart';
 
@@ -25,6 +26,8 @@ class _HomeState extends State<Home> {
   bool isChangeYears = false;
   bool isChangeProfit = false;
   bool isChangeDate = false;
+  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,7 +103,8 @@ class _HomeState extends State<Home> {
                       textWidget(
                         controller: dateController,
                         label: const Text('Initial Date'),
-                        onChange: (value) {
+                        onTab: () {
+                          dateController.text = formattedDate;
                           setState(() {
                             isChangeDate = true;
 
